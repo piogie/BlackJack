@@ -38,10 +38,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(BlackJack)
 
 set(SRC_LIST
+  src/Card.cpp
 )
 
 include_directories(inc)
-#add_library(${PROJECT_NAME}-lib ${SRC_LIST})
+add_library(${PROJECT_NAME}-lib ${SRC_LIST})
 add_executable(${PROJECT_NAME} src/main.cpp)
 target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror -Wpedantic -Wextra)
 
@@ -57,4 +58,4 @@ set(CATCH_SRC_LIST
 
 add_executable(${PROJECT_NAME}-ut ${CATCH_SRC_LIST})
 target_compile_options(${PROJECT_NAME}-ut PUBLIC -Wall -Werror -Wpedantic -Wextra)
-#target_link_libraries(${PROJECT_NAME}-ut ${PROJECT_NAME}-lib)
+target_link_libraries(${PROJECT_NAME}-ut ${PROJECT_NAME}-lib)
