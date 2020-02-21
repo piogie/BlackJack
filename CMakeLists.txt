@@ -43,6 +43,7 @@ set(SRC_LIST
   src/FileDeckGenerator.cpp
   src/BJPlayer.cpp
   src/Player.cpp
+  src/CautionPlayer.cpp
 )
 
 include_directories(inc)
