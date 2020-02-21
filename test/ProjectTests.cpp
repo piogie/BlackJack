@@ -3,8 +3,10 @@
 
 #include "Card.hpp"
 #include "Deck.hpp"
+#include "FileDeckGenerator.hpp"
 #include "StringDeckGenerator.hpp"
 
+#include <fstream>
 #include <string>
 #include <vector>
 
@@ -56,6 +58,20 @@ SCENARIO("StringDeckGenerator", "[StringDeckGenerator]") {
     GIVEN("StringDeckGenerator, '3;10;J;A' input string") {
         const std::string input{"3;10;J;A;"};
         StringDeckGenerator deckGenerator{input};
+
+        WHEN("getDeck() is called") {
+            auto result = deckGenerator.getDeck();
+
+            THEN("The result is Deck{3, 10, J, A}") {
+                CHECK(result == Deck{Card{"3"}, Card{"10"}, Card{"J"}, Card{"A"}});
+            }
+        }
+    }
+}
+
+SCENARIO("FileDeckGenerator", "[FileDeckGenerator]") {
+    GIVEN("FileDeckGenerator, '3;10;J;A' from exampleDeck.txt") {
+        FileDeckGenerator deckGenerator{std::ifstream{"test/exampleDecks/exampleDeck.txt"}};
 
         WHEN("getDeck() is called") {
             auto result = deckGenerator.getDeck();
