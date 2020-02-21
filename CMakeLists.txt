@@ -42,6 +42,7 @@ set(SRC_LIST
   src/StringDeckGenerator.cpp
   src/FileDeckGenerator.cpp
   src/BJPlayer.cpp
+  src/Player.cpp
 )
 
 include_directories(inc)
