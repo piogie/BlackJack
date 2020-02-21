@@ -44,6 +44,7 @@ set(SRC_LIST
   src/BJPlayer.cpp
   src/Player.cpp
   src/CautionPlayer.cpp
+  src/ClassicCroupier.cpp
 )
 
 include_directories(inc)
