@@ -39,6 +39,7 @@ project(BlackJack)
 
 set(SRC_LIST
   src/Card.cpp
+  src/StringDeckGenerator.cpp
 )
 
 include_directories(inc)

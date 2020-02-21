@@ -2,7 +2,10 @@
 #include "catch.hpp"
 
 #include "Card.hpp"
+#include "Deck.hpp"
+#include "StringDeckGenerator.hpp"
 
+#include <string>
 #include <vector>
 
 SCENARIO("Card", "[Card]") {
@@ -44,6 +47,21 @@ SCENARIO("Card", "[Card]") {
 
             THEN("The result is 14") {
                 CHECK(result == 14);
+            }
+        }
+    }
+}
+
+SCENARIO("StringDeckGenerator", "[StringDeckGenerator]") {
+    GIVEN("StringDeckGenerator, '3;10;J;A' input string") {
+        const std::string input{"3;10;J;A;"};
+        StringDeckGenerator deckGenerator{input};
+
+        WHEN("getDeck() is called") {
+            auto result = deckGenerator.getDeck();
+
+            THEN("The result is Deck{3, 10, J, A}") {
+                CHECK(result == Deck{Card{"3"}, Card{"10"}, Card{"J"}, Card{"A"}});
             }
         }
     }
