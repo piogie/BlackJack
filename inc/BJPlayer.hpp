@@ -13,6 +13,8 @@ public:
     void takeCard(Card newCard);
     int calculateHandValue() const;
 
+    void printHand(); // TMP probably
+
 private:
     std::vector<Card> hand;
 };
