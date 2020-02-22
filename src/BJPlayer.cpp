@@ -7,7 +7,7 @@ int BJPlayer::calculateHandValue() const
     int assNumber{};
 
     for (const auto& card : hand) {
-        if (card.isItAss()) {
+        if (card.isAss()) {
             assNumber++;
         }
 

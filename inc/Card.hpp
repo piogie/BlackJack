@@ -11,7 +11,7 @@ public:
 
     std::string getName() const;
     bool operator==(const Card& card) const;
-    bool isItAss() const;
+    bool isAss() const;
 
 private:
     const std::string name;

@@ -4,7 +4,7 @@ Card::Card(std::string name_) :
     name{name_}
 {}
 
-bool Card::isItAss() const
+bool Card::isAss() const
 {
     return name == "A";
 }
@@ -12,7 +12,7 @@ bool Card::isItAss() const
 int Card::getValue() const
 {
     if (isNameNotNumber()) {
-        if (isItAss()) {
+        if (isAss()) {
             return 1;
         }
         else {
