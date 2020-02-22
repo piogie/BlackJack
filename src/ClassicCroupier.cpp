@@ -2,7 +2,7 @@
 
 bool ClassicCroupier::isHiting()
 {
-    if (calculateHandValue() >= 17) {
+    if (calculateHandValue() <= 17) {
         return true;
     }
 

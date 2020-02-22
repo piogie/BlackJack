@@ -2,7 +2,7 @@
 
 bool CautionPlayer::isHiting()
 {
-    if (calculateHandValue() >= 12) {
+    if (calculateHandValue() <= 12) {
         return true;
     }
 
