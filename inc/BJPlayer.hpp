@@ -14,6 +14,7 @@ public:
     int calculateHandValue() const;
 
     void printHand(); // TMP probably
+    void resetHand();
 
 private:
     std::vector<Card> hand;
