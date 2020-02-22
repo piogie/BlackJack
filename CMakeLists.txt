@@ -52,11 +52,11 @@ add_library(${PROJECT_NAME}-lib ${SRC_LIST})
 add_executable(${PROJECT_NAME} src/main.cpp)
 target_compile_options(${PROJECT_NAME} PUBLIC -Wall -Werror -Wpedantic -Wextra)
 
-#if (UNIX)
-#    target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}-lib pthread)
-#else (UNIX)
-#    target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}-lib)
-#endif (UNIX)
+if (UNIX)
+    target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}-lib pthread)
+else (UNIX)
+    target_link_libraries(${PROJECT_NAME} ${PROJECT_NAME}-lib)
+endif (UNIX)
 
 set(CATCH_SRC_LIST
     test/ProjectTests.cpp
