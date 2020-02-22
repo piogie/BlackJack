@@ -45,6 +45,7 @@ set(SRC_LIST
   src/Player.cpp
   src/CautionPlayer.cpp
   src/ClassicCroupier.cpp
+  src/Game.cpp
 )
 
 include_directories(inc)
