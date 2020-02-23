@@ -30,14 +30,12 @@ void Game::play()
 RoundWinner Game::playRound()
 {
     dealStartRoundCards();
-
     auto croupierCoveredCard = deck.back(); deck.pop_back();
 
     player->setCroupierCardValue(croupier->calculateHandValue());
 
     while (not deck.empty() and player->isHiting()) {
-        auto card = deck.back();
-        deck.pop_back();
+        auto card = deck.back(); deck.pop_back();
 
         player->takeCard(card);
     }
@@ -46,8 +44,8 @@ RoundWinner Game::playRound()
         croupier->takeCard(croupierCoveredCard);
     }
     while (not deck.empty() and croupier->isHiting()) {
-        auto card = deck.back();
-        deck.pop_back();
+        auto card = deck.back(); deck.pop_back();
+
         croupier->takeCard(card);
     }
 
