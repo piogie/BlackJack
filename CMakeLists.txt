@@ -38,15 +38,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 project(BlackJack)
 
 set(SRC_LIST
-  src/Card.cpp
-  src/StringDeckGenerator.cpp
-  src/FileDeckGenerator.cpp
   src/BJPlayer.cpp
-  src/Player.cpp
   src/CautionPlayer.cpp
+  src/Card.cpp
   src/ClassicCroupier.cpp
-  src/Game.cpp
   src/CustomPlayer.cpp
+  src/FileDeckGenerator.cpp
+  src/Game.cpp
+  src/Player.cpp
+  src/StringDeckGenerator.cpp
 )
 
 include_directories(inc)
