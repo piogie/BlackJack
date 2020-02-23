@@ -21,6 +21,7 @@ public:
 
 private:
     RoundWinner playRound();
+    void dealStartRoundCards();
     void prepareForRound();
     RoundWinner findWinner();
 

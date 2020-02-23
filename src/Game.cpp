@@ -29,9 +29,7 @@ void Game::play()
 
 RoundWinner Game::playRound()
 {
-    player->takeCard(deck.back()); deck.pop_back(); // TODO refactor
-    croupier->takeCard(deck.back()); deck.pop_back();
-    player->takeCard(deck.back()); deck.pop_back();
+    dealStartRoundCards();
 
     auto croupierCoveredCard = deck.back(); deck.pop_back();
 
@@ -54,6 +52,13 @@ RoundWinner Game::playRound()
     }
 
     return findWinner();
+}
+
+void Game::dealStartRoundCards()
+{
+    player->takeCard(deck.back()); deck.pop_back(); // TODO refactor
+    croupier->takeCard(deck.back()); deck.pop_back();
+    player->takeCard(deck.back()); deck.pop_back();
 }
 
 void Game::prepareForRound()
