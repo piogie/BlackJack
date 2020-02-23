@@ -1,16 +1,16 @@
 #pragma once
 
-#include "DeckGenerator.hpp"
 #include "Deck.hpp"
+#include "DeckGenerator.hpp"
 
 #include <fstream>
-#include <string>
 
 class FileDeckGenerator : public DeckGenerator
 {
 public:
-    explicit FileDeckGenerator(std::ifstream unparsedDeckFile);
     virtual ~FileDeckGenerator() = default;
+
+    explicit FileDeckGenerator(std::ifstream unparsedDeckFile);
 
     Deck getDeck() const override;
 

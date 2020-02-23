@@ -1,5 +1,7 @@
 #include "FileDeckGenerator.hpp"
 
+#include <string>
+
 FileDeckGenerator::FileDeckGenerator(std::ifstream unparsedDeckFile)
 {
     generateDeck(unparsedDeckFile);
