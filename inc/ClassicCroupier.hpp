@@ -5,5 +5,5 @@
 class ClassicCroupier : public Croupier
 {
 public:
-    bool isHiting() override;
+    bool isHiting() const override;
 };

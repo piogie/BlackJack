@@ -1,6 +1,6 @@
 #include "CautionPlayer.hpp"
 
-bool CautionPlayer::isHiting()
+bool CautionPlayer::isHiting() const
 {
     if (calculateHandValue() <= 12) {
         return true;

@@ -9,7 +9,7 @@ class BJPlayer
 public:
     virtual ~BJPlayer() = default;
 
-    virtual bool isHiting() = 0;
+    virtual bool isHiting() const = 0;
 
     void takeCard(Card newCard);
     int calculateHandValue() const;

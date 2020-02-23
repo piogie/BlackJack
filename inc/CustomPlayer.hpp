@@ -8,5 +8,5 @@ class CustomPlayer : public Player
 {
 public:
     std::string getName() const override;
-    bool isHiting() override;
+    bool isHiting() const override;
 };

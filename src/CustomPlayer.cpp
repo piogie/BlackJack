@@ -1,6 +1,6 @@
 #include "CustomPlayer.hpp"
 
-bool CustomPlayer::isHiting()
+bool CustomPlayer::isHiting() const
 {
     if (calculateHandValue() <= 15) {
         return true;
