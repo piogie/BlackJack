@@ -4,9 +4,10 @@
 #include "Deck.hpp"
 #include "Player.hpp"
 
-enum class RoundStatus
+#include <memory>
+
+enum class RoundWinner
 {
-    NoCards,
     PlayerWinner,
     CroupierWinner
 };
@@ -14,14 +15,30 @@ enum class RoundStatus
 class Game
 {
 public:
-    Game(Player& player_, Croupier& croupier_, Deck deck_); // TODO check what if not const &
+    Game(std::unique_ptr<Player> player_, std::unique_ptr<Croupier> croupier_, Deck deck_); // TODO check what if const &
 
     void play();
 
 private:
-    RoundStatus playRound();
+    void prepareForRound();
+    RoundWinner playRound();
 
-    Player& player;
-    Croupier& croupier;
+    bool isEnoughCardsToPlayRound();
+
+    void printStartGameNotification();
+    void printEndRoundNotification(RoundWinner endRoundWinner);
+    void printEndGameNotification();
+
+    bool isBusted(int handValue);
+    bool isPlayerWinner();
+
+
+    RoundWinner findWinner();
+
+    std::unique_ptr<Player> player;
+    std::unique_ptr<Croupier> croupier;
     Deck deck;
+
+    int playerScore;
+    int croupierScore;
 };

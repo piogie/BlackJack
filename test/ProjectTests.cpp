@@ -89,10 +89,13 @@ SCENARIO("FileDeckGenerator", "[FileDeckGenerator]") {
 
 SCENARIO("Game", "[Game]") {
     GIVEN("Game with Caution Player and Classic Croupier") {
-        CautionPlayer cautionPlayer;
-        ClassicCroupier classicCroupier;
-        FileDeckGenerator deckGenerator{std::ifstream{"test/exampleDecks/exampleDeck.txt"}};
-        Game game{cautionPlayer, classicCroupier, deckGenerator.getDeck()}; // TODO check if it's rvalue or by new
+        auto cautionPlayer{std::make_unique<CautionPlayer>()}; // TODO check if auto and what with {}
+        auto classicCroupier{std::make_unique<ClassicCroupier>()};
+        StringDeckGenerator deckGenerator{
+            "8;A;5;8;9;J;2;Q;Q;J;4;K;10;6;6;A;10;9;2;K;K;10;6;7;3;5;2;4;4;7;3;3;A;7;8;K;2;J;7;8;J;9;4;5;10;5;Q;3;9;6;A;Q;"
+        };
+
+        Game game{std::move(cautionPlayer), std::move(classicCroupier), deckGenerator.getDeck()}; // TODO check if it's rvalue or by new
 
         WHEN("play() is called") {
             game.play();
