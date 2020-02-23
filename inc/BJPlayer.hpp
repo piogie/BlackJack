@@ -10,10 +10,10 @@ public:
     virtual ~BJPlayer() = default;
 
     virtual bool isHiting() = 0;
+
     void takeCard(Card newCard);
     int calculateHandValue() const;
-
-    void printHand(); // TMP probably
+    void printHand() const; // TODO make print from hand member
     void resetHand();
 
 private:

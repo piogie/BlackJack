@@ -4,6 +4,11 @@
 #include <iostream>
 #include <iterator>
 
+void BJPlayer::takeCard(Card newCard)
+{
+    hand.push_back(newCard);
+}
+
 int BJPlayer::calculateHandValue() const
 {
     int handValue{};
@@ -17,7 +22,7 @@ int BJPlayer::calculateHandValue() const
         handValue += card.getValue();
     }
 
-    constexpr int assBenefit{9};
+    constexpr int assBenefit{9}; // TODO move assBenefit outside
     while (assNumber > 0 and handValue + assBenefit <= BlackJackValue) {
         handValue += assBenefit;
         assNumber--;
@@ -26,16 +31,11 @@ int BJPlayer::calculateHandValue() const
     return handValue;
 }
 
-void BJPlayer::takeCard(Card newCard)
-{
-    hand.push_back(newCard);
-}
-
-void BJPlayer::printHand()
+void BJPlayer::printHand() const
 {
     std::cout << hand.front().getName();
 
-    for (auto it = std::next(hand.begin()); it < hand.end(); it++) { // TODO make print from hand object
+    for (auto it = std::next(hand.cbegin()); it < hand.cend(); it++) {
         std::cout << ", " << it->getName();
     }
 }
