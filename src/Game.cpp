@@ -33,7 +33,7 @@ RoundWinner Game::playRound()
     croupier->takeCard(deck.back()); deck.pop_back();
     player->takeCard(deck.back()); deck.pop_back();
 
-    auto croupierCoverCard = deck.back(); deck.pop_back();
+    auto croupierCoveredCard = deck.back(); deck.pop_back();
 
     player->setCroupierCardValue(croupier->calculateHandValue());
 
@@ -45,7 +45,7 @@ RoundWinner Game::playRound()
     }
 
     if (croupier->isHiting()) {
-        croupier->takeCard(croupierCoverCard);
+        croupier->takeCard(croupierCoveredCard);
     }
     while (not deck.empty() and croupier->isHiting()) {
         auto card = deck.back();
