@@ -8,6 +8,8 @@
 class Player : public BJPlayer
 {
 public:
+    virtual ~Player() = default;
+
     void setCropierCardValue(const Card&);
     virtual std::string getName() = 0;
 

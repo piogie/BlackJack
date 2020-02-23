@@ -4,4 +4,6 @@
 
 class Croupier : public BJPlayer
 {
+public:
+    virtual ~Croupier() = default;
 };
