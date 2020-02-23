@@ -60,9 +60,38 @@ void Game::prepareForRound()
     croupier->resetHand();
 }
 
+RoundWinner Game::findWinner()
+{
+    if (isPlayerWinner()) {
+        playerScore++;
+        return RoundWinner::PlayerWinner;
+    }
+
+    croupierScore++;
+    return RoundWinner::CroupierWinner;
+}
+
 bool Game::isEnoughCardsToPlayRound()
 {
     return deck.size() >= 4; // TODO remove magic number
+}
+
+bool Game::isPlayerWinner()
+{
+    auto playerHandValue = player->calculateHandValue();
+    auto croupierHandValue = croupier->calculateHandValue();
+
+    return
+        isBusted(croupierHandValue) and not isBusted(playerHandValue)
+        or
+        not isBusted(playerHandValue) and not isBusted(croupierHandValue)
+        and
+        playerHandValue > croupierHandValue;
+}
+
+bool Game::isBusted(int handValue)
+{
+    return handValue > BlackJackValue;
 }
 
 void Game::printStartGameNotification()
@@ -105,33 +134,4 @@ void Game::printEndRoundNotification(RoundWinner endRoundWinner)
 void Game::printEndGameNotification()
 {
     std::cout << "[End Game]" << std::endl;
-}
-
-RoundWinner Game::findWinner()
-{
-    if (isPlayerWinner()) {
-        playerScore++;
-        return RoundWinner::PlayerWinner;
-    }
-
-    croupierScore++;
-    return RoundWinner::CroupierWinner;
-}
-
-bool Game::isBusted(int handValue)
-{
-    return handValue > BlackJackValue;
-}
-
-bool Game::isPlayerWinner()
-{
-    auto playerHandValue = player->calculateHandValue();
-    auto croupierHandValue = croupier->calculateHandValue();
-
-    return
-        isBusted(croupierHandValue) and not isBusted(playerHandValue)
-        or
-        not isBusted(playerHandValue) and not isBusted(croupierHandValue)
-        and
-        playerHandValue > croupierHandValue;
 }

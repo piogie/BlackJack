@@ -20,25 +20,21 @@ public:
     void play();
 
 private:
-    void prepareForRound();
     RoundWinner playRound();
+    void prepareForRound();
+    RoundWinner findWinner();
 
     bool isEnoughCardsToPlayRound();
+    bool isPlayerWinner();
+    bool isBusted(int handValue);
 
     void printStartGameNotification();
     void printEndRoundNotification(RoundWinner endRoundWinner);
     void printEndGameNotification();
 
-    bool isBusted(int handValue);
-    bool isPlayerWinner();
-
-
-    RoundWinner findWinner();
-
     std::unique_ptr<Player> player;
     std::unique_ptr<Croupier> croupier;
     Deck deck;
-
     int playerScore;
     int croupierScore;
 };
