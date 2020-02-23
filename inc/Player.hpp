@@ -10,8 +10,9 @@ class Player : public BJPlayer
 public:
     virtual ~Player() = default;
 
-    void setCropierCardValue(const Card&);
     virtual std::string getName() const = 0;
+
+    void setCropierCardValue(const Card&);
 
 private:
     int croupierCardValue;
