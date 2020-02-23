@@ -35,6 +35,8 @@ RoundWinner Game::playRound()
 
     auto croupierCoverCard = deck.back(); deck.pop_back();
 
+    player->setCroupierCardValue(croupier->calculateHandValue());
+
     while (not deck.empty() and player->isHiting()) {
         auto card = deck.back();
         deck.pop_back();
