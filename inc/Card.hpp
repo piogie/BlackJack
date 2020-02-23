@@ -7,11 +7,11 @@ class Card
 public:
     explicit Card(std::string name_);
 
-    int getValue() const;
-
     std::string getName() const;
-    bool operator==(const Card& card) const;
+    int getValue() const;
     bool isAss() const;
+
+    bool operator==(const Card& card) const;
 
 private:
     const std::string name;

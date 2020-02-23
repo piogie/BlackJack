@@ -4,9 +4,9 @@ Card::Card(std::string name_) :
     name{name_}
 {}
 
-bool Card::isAss() const
+std::string Card::getName() const
 {
-    return name == "A";
+    return name;
 }
 
 int Card::getValue() const
@@ -23,9 +23,9 @@ int Card::getValue() const
     return std::stoi(name);
 }
 
-std::string Card::getName() const
+bool Card::isAss() const
 {
-    return name;
+    return name == "A";
 }
 
 bool Card::operator==(const Card& card) const
