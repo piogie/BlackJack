@@ -12,7 +12,7 @@ public:
 
     virtual std::string getName() const = 0;
 
-    void setCroupierCardValue(const Card&);
+    void setCroupierCardValue(int croupierCardValue_);
 
 private:
     int croupierCardValue;

@@ -1,6 +1,6 @@
 #include "Player.hpp"
 
-void Player::setCroupierCardValue(const Card& croupierCard)
+void Player::setCroupierCardValue(int croupierCardValue_)
 {
-    croupierCardValue = croupierCard.getValue(); // BUG It returns bad value if croupier has Ass
+    croupierCardValue = croupierCardValue_;
 }
