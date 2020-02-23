@@ -8,13 +8,14 @@
 class StringDeckGenerator : public DeckGenerator
 {
 public:
-    explicit StringDeckGenerator(std::string unparsedDeck);
     virtual ~StringDeckGenerator() = default;
+
+    explicit StringDeckGenerator(const std::string& unparsedDeck);
 
     Deck getDeck() const override;
 
 private:
     Deck deck;
 
-    void generateDeck(std::string unparsedDeck);
+    void generateDeck(const std::string& unparsedDeck);
 };
