@@ -11,7 +11,7 @@ public:
     virtual ~Player() = default;
 
     void setCropierCardValue(const Card&);
-    virtual std::string getName() = 0;
+    virtual std::string getName() const = 0;
 
 private:
     int croupierCardValue;

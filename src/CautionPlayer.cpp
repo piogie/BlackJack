@@ -9,7 +9,7 @@ bool CautionPlayer::isHiting()
     return false;
 }
 
-std::string CautionPlayer::getName()
+std::string CautionPlayer::getName() const
 {
     return "caution player"; // TODO or mby return name
 }

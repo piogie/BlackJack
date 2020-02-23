@@ -7,6 +7,6 @@
 class CautionPlayer : public Player
 {
 public:
-    std::string getName() override;
+    std::string getName() const override;
     bool isHiting() override;
 };

@@ -9,7 +9,7 @@ bool CustomPlayer::isHiting()
     return false;
 }
 
-std::string CustomPlayer::getName()
+std::string CustomPlayer::getName() const
 {
     return "custom player"; // TODO or mby return name
 }
